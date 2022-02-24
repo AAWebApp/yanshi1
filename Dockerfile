@@ -9,7 +9,7 @@ ADD ./ /usr/local/ph
 WORKDIR /usr/local/ph
 # 安装requirements
 RUN pip install --upgrade pip
-RUN pip install --paddlepaddle==2.2.2 -i http://mirror.baidu.com/pypi/simple
+
 RUN pip install --no-cache-dir -r requirements.txt
  
 CMD ["streamlit", "run"，"streamlit_app.py"]
