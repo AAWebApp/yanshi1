@@ -5,7 +5,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import streamlit as st
 from jieba import analyse
-import spacy
+
 
 title = st.text_input('搜索', '保障性租赁住房')
 my_placeholder = st.empty()
