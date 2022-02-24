@@ -127,8 +127,7 @@ else:
         # 设置停用词并去除单个词
         if word not in stop_words and len(word) > 1:
             result_list.append(word)
-    print(result_list)
-
+    
     # 筛选后统计
     word_counts = collections.Counter(result_list)
     # 获取前100最高频的词
@@ -148,9 +147,9 @@ else:
 
     st.set_option('deprecation.showPyplotGlobalUse', False)
     # 显示生成的词云图片
-    plt.imshow(my_cloud, interpolation='bilinear')
+    #plt.imshow(my_cloud, interpolation='bilinear')
     # 显示设置词云图中无坐标轴
-    #plt.axis('off')
-    #plt.show()
+    plt.axis('off')
+    plt.show()
     st.pyplot()
 
