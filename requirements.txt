@@ -3,7 +3,7 @@ numpy
 streamlit
 
 jieba
-
+LAC
 wordcloud
 matplotlib
 bs4
