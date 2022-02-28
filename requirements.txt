@@ -1,7 +1,7 @@
 altair
 numpy
 streamlit
-
+paddlepaddle
 jieba
 LAC
 wordcloud
