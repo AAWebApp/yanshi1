@@ -7,5 +7,5 @@ LAC
 wordcloud
 matplotlib
 bs4
-
+pandas
 requests
