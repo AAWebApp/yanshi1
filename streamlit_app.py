@@ -5,7 +5,6 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import streamlit as st
 from jieba import analyse
-import spacy
 import json
 from newspaper import Article
 import pandas as pd
