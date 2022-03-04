@@ -16,7 +16,7 @@ st.title("简政")
 欢迎进入简政！在这里我们将和您一起汇集政策资讯
 """
 #预加载标题及链接可修改
-shhwj=open("G:\Pictures\浙江省人民政府门户网站 省政府行政规范性文件.json",'r',encoding='utf-8')
+shhwj=open("浙江省人民政府门户网站 省政府行政规范性文件.json",'r',encoding='utf-8')
 shhwj=json.load(shhwj)
 shtitle=[]
 shurl=[]
@@ -253,7 +253,7 @@ elif enre=='相关信息':
         st.sidebar.write('http://www.nanhu.gov.cn/art/2022/1/7/art_1229516974_2388424.html')
     else:
         st.write('')
-        a=json.load(open("D:\桌面\cata_19066.json",'r',encoding='utf-8'))
+        a=json.load(open("cata_19066.json",'r',encoding='utf-8'))
         
         #a=[[1,2,3,4],[5,6,7,8]]#包含两个不同的子列表[1,2,3,4]和[5,6,7,8]
         data=DataFrame(a)#这时候是以行为标准写入的
@@ -268,7 +268,7 @@ elif enre=='政策脉络':
     elif grn =='地方政策对接情况':
         st.write('杭州市加快发展保障性住房实施方案')
     elif grn =='政策背景':
-        o2=open("D:\桌面\python 简政\政策背景1.txt",'r',encoding='utf-8').read()
+        o2=open("政策背景1.txt",'r',encoding='utf-8').read()
         st.write(o2)
     else:
         st.write('浙江省将建设120万套保障性租赁住房')
