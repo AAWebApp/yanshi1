@@ -9,4 +9,4 @@ matplotlib
 bs4
 pandas
 requests
-newspaper
+newspaper3k
