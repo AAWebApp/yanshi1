@@ -5,15 +5,18 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import streamlit as st
 from jieba import analyse
+
 import json
 from newspaper import Article
 import pandas as pd
+from pandas.core.frame import DataFrame
+import numpy as np
 st.title("简政")
 """
 欢迎进入简政！在这里我们将和您一起汇集政策资讯
 """
 #预加载标题及链接可修改
-shhwj=open("浙江省人民政府门户网站 省政府行政规范性文件.json",'r',encoding='utf-8')
+shhwj=open("G:\Pictures\浙江省人民政府门户网站 省政府行政规范性文件.json",'r',encoding='utf-8')
 shhwj=json.load(shhwj)
 shtitle=[]
 shurl=[]
@@ -62,11 +65,11 @@ if ge=='搜索模式':
 ##
 else:
     option1 = st.selectbox(
-        '筛选吧',
+        '选择领域,地域,人群',
          ['领域','地域','人群'])
     if option1=='领域':
         option2 = st.selectbox(
-            '筛选吧',
+            '选择细目',
             ['文化保护','水利','安居','土地','工程建设','生态','旅游','养老','教育','就业','农业农村','社会保障救助','其他','医疗','服役'])
         if option2=="文化保护":
             option=st.selectbox(
@@ -121,13 +124,38 @@ def padu(url):
         return x
 try:
     ww =padu(shurl[shtitle2.index(option)]).encode('utf-8')
-    enre=st.radio('请点击相应的功能后查看',('政策关键词top10','词云图','政策文件','相关信息','政策脉络','政策落地'))
+    enre=st.radio('请点击相应的功能后查看',('政策关键词top10','词云图','政策文件','相关信息','政策脉络','政策落地','政策动向可视化'))
 except:
     ww='无'.encode('utf-8')
-    enre=st.radio('请点击相应的功能后查看',('政策关键词top10','词云图','政策文件','相关信息','政策脉络','政策落地'))
+    enre=st.radio('请点击相应的功能后查看',('政策关键词top10','词云图','政策文件','相关信息','政策脉络','政策落地','政策动向可视化'))
 if st.button('用户中心'):
     st.balloons()
     st.sidebar.write('用户中心欢迎您')
+    uploaded_file = st.sidebar.file_uploader("在此处共享您的信息")
+    if uploaded_file is not None:
+         # To read file as bytes:
+         bytes_data = uploaded_file.getvalue()
+         st.sidebar.write(bytes_data)
+
+         # To convert to a string based IO:
+         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+         st.sidebar.write(stringio)
+
+         # To read file as string:
+         string_data = stringio.read()
+         st.sidebar.write(string_data)
+
+         # Can be used wherever a "file-like" object is accepted:
+         dataframe = pd.read_csv(uploaded_file)
+         st.sidebar.write(dataframe)
+    st.sidebar.write('此处查看其他人的共享：')
+    st.sidebar.write('用户123：“简政平台超好用”')
+    st.sidebar.write('用户秋叶：给大家推荐一个有用的网站：http://www.gov.cn/zhengce/content/2021-07/02/content_5622027.htm')
+    
+    
+else:
+    d1=[]
+    st.dataframe()
 #2
 if enre=='政策关键词top10':
     #h=open("实验1.txt","r",encoding='utf-8').read()
@@ -142,7 +170,12 @@ if enre=='政策关键词top10':
             
         else:
             continue
+elif enre=='政策动向可视化':
+    chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['住房', '保障', '租赁'])
 
+    st.area_chart(chart_data)
 
 elif enre=='政策文件':
     
@@ -220,8 +253,8 @@ elif enre=='相关信息':
         st.sidebar.write('http://www.nanhu.gov.cn/art/2022/1/7/art_1229516974_2388424.html')
     else:
         st.write('')
-        a=json.load(open("cata_19066.json",'r',encoding='utf-8'))
-        from pandas.core.frame import DataFrame
+        a=json.load(open("D:\桌面\cata_19066.json",'r',encoding='utf-8'))
+        
         #a=[[1,2,3,4],[5,6,7,8]]#包含两个不同的子列表[1,2,3,4]和[5,6,7,8]
         data=DataFrame(a)#这时候是以行为标准写入的
         st.dataframe(data)
@@ -235,7 +268,7 @@ elif enre=='政策脉络':
     elif grn =='地方政策对接情况':
         st.write('杭州市加快发展保障性住房实施方案')
     elif grn =='政策背景':
-        o2=open("政策背景1.txt",'r',encoding='utf-8').read()
+        o2=open("D:\桌面\python 简政\政策背景1.txt",'r',encoding='utf-8').read()
         st.write(o2)
     else:
         st.write('浙江省将建设120万套保障性租赁住房')
