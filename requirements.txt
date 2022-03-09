@@ -10,3 +10,4 @@ bs4
 pandas
 requests
 newspaper3k
+st-annotated-text
