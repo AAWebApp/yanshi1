@@ -5,7 +5,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import streamlit as st
 from jieba import analyse
-
+from annotated_text import annotated_text
 import json
 from newspaper import Article
 import pandas as pd
