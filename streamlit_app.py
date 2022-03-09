@@ -50,7 +50,7 @@ option1 = st.sidebar.selectbox(
 
 for i in range(len(p)):
     if option1==p[i]:
-        st.write(annotated_text(p[i], "#8ef"),end='')
+        annotated_text(p[i], "#8ef",end='')
             
     else:
-        print(p[i],end='')
+        st.write(p[i],end='')
