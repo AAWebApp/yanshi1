@@ -47,10 +47,10 @@ li=list(d.keys())
 option1 = st.sidebar.selectbox(
         '选择关键词',
          li)
-
+u=''
 for i in range(len(p)):
     if option1==p[i]:
-        annotated_text(p[i], "#8ef")
+        annotated_text(u,(p[i], "#8ef"))
             
     else:
         st.write(p[i],end='')
