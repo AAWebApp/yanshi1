@@ -48,7 +48,6 @@ option1 = st.sidebar.selectbox(
         '选择关键词',
          li)
 
-print(li)
 for i in range(len(p)):
     if option1==p[i]:
         st.write(annotated_text(p[i], "#8ef"),end='')
