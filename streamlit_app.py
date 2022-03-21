@@ -75,7 +75,7 @@ def jsadd(file,dic):
 ###
 ###开启简政
 tt4=''
-ojyc1=open("D:\桌面\jyc1.txt",'r',encoding='utf-8').read()
+ojyc1=open("jyc1.txt",'r',encoding='utf-8').read()
 text1=ojyc1
 tt6='2021年非上海生源应届普通高校毕业生进沪就业申请本市户籍办法'
 tt2='2021年非上海生源应届普通高校毕业生进沪就业申请本市户籍办法'
@@ -113,8 +113,7 @@ if a1:
             if radi=='新建词条':
                 with st.sidebar.form("词条"):
                     uploaded_file = st.file_uploader("此处上传视频文件")
-                    if uploaded_file is not None:
-                        shutil.move(uploaded_file,"D:\桌面\python 简政\video4")
+                    
                     tt3=st.text_input('输入词条名称','')
                     text2=st.text_area('输入正文','')
                     tt4=st.text_input('输入来源政策','')
@@ -139,7 +138,7 @@ if a1:
            
                     sub2 = st.form_submit_button("点赞")
 
-                    video_file = open("D:\桌面\jyc.MP4", 'rb')
+                    video_file = open("jyc.MP4", 'rb')
                     video_bytes = video_file.read()
                     
                     st.video(video_bytes)
@@ -152,7 +151,7 @@ if a1:
 
         else:
             try:
-                ojyc2=open("D:\桌面\python 简政\datadic.json",'r',encoding='utf-8')
+                ojyc2=open("datadic.json",'r',encoding='utf-8')
                 ojyc2=json.load(ojyc2)
                 with st.sidebar.form("词条"):
                     sub2 = st.form_submit_button("点赞")
@@ -270,7 +269,7 @@ if a1:
                             
         if a97:
             from PIL import Image
-            image = Image.open("D:\桌面\Screenshot_20220319_223003_com.baidu.searchbox(1).jpg")
+            image = Image.open("Screenshot_20220319_223003_com.baidu.searchbox(1).jpg")
 
             st.image(image, caption='Sunrise by the mountains')
                                     
@@ -362,19 +361,19 @@ if a89:
             with col1:
                 st.write("您订阅的关于“住房”的政策")
                 with st.expander("最新信息*"):
-                    o=open("D:\桌面\python 简政\演示文本1.txt",'r',encoding='utf-8').read()
+                    o=open("演示文本1.txt",'r',encoding='utf-8').read()
                     o
 
             with col2:
                 st.write("您订阅的关于“黄浦区”的政策")
                 with st.expander("暂无信息"):
-                    o=open("D:\桌面\python 简政\演示文本1.txt",'r',encoding='utf-8').read()
+                    o=open("演示文本1.txt",'r',encoding='utf-8').read()
                     o
 
             with col3:
                 st.write("您订阅的关于“黄浦区”“发展与改革委员会”的政策")
                 with st.expander("暂无信息"):
-                    o=open("D:\桌面\python 简政\演示文本1.txt",'r',encoding='utf-8').read()
+                    o=open("演示文本1.txt",'r',encoding='utf-8').read()
                     o
                 
 
